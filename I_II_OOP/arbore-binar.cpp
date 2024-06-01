@@ -150,20 +150,20 @@ private:
     // functie pentru actualizarea contorului in inordine (copil stang - radacina - copil drept)
     void updateContor(Nod<T>* radacina) {
         contor = 0;
-        updateContorInodrine(radacina);
+        updateContorInordine(radacina);
     }
 
-    void updateContorInodrine(Nod<T>* nod) {
+    void updateContorInordine(Nod<T>* nod) {
         if(nod) {
             if(nod->getCopilStang()) {
-                updateContorInodrine(nod->getCopilStang());
+                updateContorInordine(nod->getCopilStang());
             }
 
             contor++;
             nod->setPozitie(contor);
 
             if(nod->getCopilDrept()) {
-                updateContorInodrine(nod->getCopilDrept());
+                updateContorInordine(nod->getCopilDrept());
             }
         }
     }
