@@ -88,7 +88,7 @@ public:
     }
 
     // Operatorul + (Nod + cheieNoua)
-    Nod& operator+(T& cheieNoua) {
+    Nod& operator+(const T& cheieNoua) {
         if(cheie != cheieNoua) {
             if(cheie > cheieNoua) {
                 if(!copilStang) {
@@ -183,7 +183,7 @@ public:
     }
 
     // Operatorul de atribuire
-    ArboreBinar& operator=(const ArboreBinar& alt) {
+    ArboreBinar& operator=(ArboreBinar& alt) {
         if (this == &alt) return *this;
 
         // Eliberăm memoria existentă
@@ -204,7 +204,7 @@ public:
     }
 
     // Operatorul adunare: cheie + arbore
-    ArboreBinar& operator+(T& cheie) {
+    ArboreBinar& operator+(const T& cheie) {
         if(radacina) {
             *radacina + cheie;
         } else {
@@ -217,7 +217,7 @@ public:
     }
 
     // Operatorul adunare: arbore + arbore
-    ArboreBinar& operator+(ArboreBinar& alt) {
+    ArboreBinar& operator+(const ArboreBinar& alt) {
         if(alt.radacina) {
             for(int i = 1; i <= alt.contor; ++i) {
                 Nod<T>* nod = alt.radacina->getNodByPosition(i);
