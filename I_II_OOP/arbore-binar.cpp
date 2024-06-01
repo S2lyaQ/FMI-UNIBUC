@@ -156,14 +156,14 @@ private:
     void updateContorInodrine(Nod<T>* nod) {
         if(nod) {
             if(nod->getCopilStang()) {
-                updateContorInordine(nod->getCopilStang());
+                updateContorInodrine(nod->getCopilStang());
             }
 
             contor++;
             nod->setPozitie(contor);
 
             if(nod->getCopilDrept()) {
-                updateContorInordine(nod->getCopilDrept());
+                updateContorInodrine(nod->getCopilDrept());
             }
         }
     }
@@ -211,7 +211,7 @@ public:
             radacina = new Nod<T>(cheie);
         }
 
-        updateContorInordine(radacina);
+        updateContor(radacina);
 
         return *this;
     }
@@ -219,15 +219,15 @@ public:
     // Operatorul adunare: arbore + arbore
     ArboreBinar& operator+(ArboreBinar& alt) {
         if(alt.radacina) {
-            for(let i = 1; i <= alt.contor; ++i) {
+            for(int i = 1; i <= alt.contor; ++i) {
                 Nod<T>* nod = alt.radacina->getNodByPosition(i);
                 if(nod) {
-                    *this + nod->getCheie();
+                    this->radacina + nod->getCheie();
                 }
             }
         }
 
-        updateContorInordine(radacina);
+        updateContor(radacina);
         return *this;
     }
     
